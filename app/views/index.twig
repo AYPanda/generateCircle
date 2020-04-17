@@ -1,0 +1,45 @@
+{% extends "layout/_layout.twig" %}
+
+{% block title %}Заголовок{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="wrapper">
+                <canvas id="pole" width="500" height="500"></canvas>
+                <div class="buttons">
+                    <button type="button" class="grey" id="new-circle">Новая точка</button>
+                    <button type="button" class="green" id="check">Проверить</button>
+                    <button type="button" class="grey" id="logout">Выход</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="check-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Проверить</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Пересечения у <span id="count-circles"></span> кругов</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary" id="clear">Очистить поле</button>
+                    <div class="error-modal"></div>
+                </div>
+            </div><!-- /.модальное окно-Содержание -->
+        </div><!-- /.модальное окно-диалог -->
+    </div><!-- /.модальное окно -->
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="/js/circle.js"></script>
+{% endblock %}
